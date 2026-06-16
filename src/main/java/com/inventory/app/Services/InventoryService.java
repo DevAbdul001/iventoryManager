@@ -2,7 +2,6 @@ package com.inventory.app.Services;
 
 import com.inventory.app.DTO.InventoryDTO.CreateInventoryDTO;
 import com.inventory.app.DTO.InventoryDTO.InventoryDTO;
-import com.inventory.app.DTO.ProductDTO.ProductDTO;
 import com.inventory.app.Models.Inventory;
 import com.inventory.app.Models.Product;
 import com.inventory.app.Repositories.InventoryRepository;
@@ -69,4 +68,11 @@ public class InventoryService {
 
         return  InventoryDTO.fromEntity(inventory);
     }
+
+  public void  deleteInventory(Long id){
+        inventoryRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Inventory doest exist"));
+
+        inventoryRepository.deleteById(id);
+  }
 }

@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/inventory")
 @RequiredArgsConstructor
@@ -20,6 +22,16 @@ public class InventoryController {
         return  inventoryService.createInventory(dto);
     }
 
-//    @GetMapping
+    @GetMapping
+    public List<InventoryDTO> fetchInventories(){
+        return inventoryService.fetchInventory();
+    }
+
+    @GetMapping("/{id}")
+    public InventoryDTO fetchInventoryById(
+            @PathVariable Long id
+    ){
+        return  inventoryService.fetchInventoryById(id);
+    }
 
 }
