@@ -2,10 +2,12 @@ package com.inventory.app.Models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
+@Setter
 @Entity
 @Table( name = "orders")
 public class Order {
@@ -13,8 +15,7 @@ public class Order {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private  Long id;
-
-    private  Long userId;
+    private Long userId;
     private BigDecimal total;
     private String status;
 
@@ -22,10 +23,10 @@ public class Order {
 
     }
 
-    public Order( Long userId, BigDecimal total, String status){
-        this.userId = userId;
+    public Order( User user, BigDecimal total, String status){
+       this.userId = user.getId();
         this.total = total;
-        this.status = status;
+        this.status = "Pendig";
     }
 
 
