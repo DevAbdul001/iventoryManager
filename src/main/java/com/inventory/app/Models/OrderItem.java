@@ -19,15 +19,19 @@ public class OrderItem {
     private BigDecimal price;
     private int quantity;
 
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    private Product item;
+
     protected OrderItem(){
 
     }
 
-    public OrderItem(Long orderId, Long productId, BigDecimal price, int quantity){
+    public OrderItem(Product  product, Order order, int quantity){
 
-        this.orderId = orderId;
-        this.productId = productId;
-        this.price = price;
+        this.orderId = order.getId();
+        this.productId = product.getId();
+        this.price =  product.getPrice();
         this.quantity = quantity;
     }
 }

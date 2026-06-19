@@ -25,6 +25,9 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Inventory> inventories;
 
+    @OneToMany(mappedBy = "item")
+    private List<OrderItem> orderItems;
+
     protected  Product(){
 
     }

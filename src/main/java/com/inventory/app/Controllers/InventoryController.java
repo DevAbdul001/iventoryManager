@@ -34,4 +34,12 @@ public class InventoryController {
         return  inventoryService.fetchInventoryById(id);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(
+            @PathVariable Long id
+    ){
+        inventoryService.deleteInventory(id);
+    }
+
 }

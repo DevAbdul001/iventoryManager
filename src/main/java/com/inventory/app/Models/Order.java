@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,6 +20,7 @@ public class Order {
     private BigDecimal total;
     private String status;
 
+
     protected Order(){
 
     }
@@ -26,7 +28,7 @@ public class Order {
     public Order( User user, BigDecimal total, String status){
        this.userId = user.getId();
         this.total = total;
-        this.status = "Pendig";
+        this.status = "Pending";
     }
 
 
