@@ -11,7 +11,6 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long productId;
     private int quantity;
 
     @ManyToOne
@@ -25,7 +24,7 @@ public class Inventory {
 
     public Inventory(Product product ,int quantity)
     {
-        this.productId = product.getId();
+        this.product = product;
         this.quantity = quantity;
     }
 }

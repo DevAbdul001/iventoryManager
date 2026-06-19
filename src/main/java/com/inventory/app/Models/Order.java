@@ -20,6 +20,8 @@ public class Order {
     private BigDecimal total;
     private String status;
 
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems;
 
     protected Order(){
 

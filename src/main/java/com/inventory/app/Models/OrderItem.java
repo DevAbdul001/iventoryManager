@@ -14,14 +14,16 @@ public class OrderItem {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private  Long id;
 
-    private Long orderId;
-    private Long productId;
     private BigDecimal price;
     private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "productId")
-    private Product item;
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    private Order order;
 
     protected OrderItem(){
 
@@ -29,8 +31,8 @@ public class OrderItem {
 
     public OrderItem(Product  product, Order order, int quantity){
 
-        this.orderId = order.getId();
-        this.productId = product.getId();
+        this.order = order;
+        this.product = product;
         this.price =  product.getPrice();
         this.quantity = quantity;
     }

@@ -13,8 +13,8 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
     @Query("""
             SELECT ot
             FROM OrderItem ot
-            JOIN FETCH ot.product
-            WHERE ot.orderId = :orderId
+            JOIN FETCH ot.order
+            WHERE ot.order.id = :orderId
             """)
     List<OrderItem> findAllWithProducts(Long orderId);
 

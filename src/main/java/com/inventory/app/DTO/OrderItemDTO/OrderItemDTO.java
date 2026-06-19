@@ -14,12 +14,12 @@ public record OrderItemDTO (
 ) {
     public static OrderItemDTO fromEntity(OrderItem orderItem){
         return new OrderItemDTO(
-                orderItem.getOrderId(),
-                orderItem.getProductId(),
+                orderItem.getOrder().getId(),
+                orderItem.getProduct().getId(),
                 orderItem.getPrice(),
                 orderItem.getQuantity(),
-                orderItem.getItem().getName(),
-                orderItem.getItem().getImg_url()
+                orderItem.getProduct().getName(),
+                orderItem.getProduct().getImg_url()
         );
     }
 }

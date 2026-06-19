@@ -28,12 +28,12 @@ public class OrderItemService {
 
     private OrderItemDTO toDTO(OrderItem orderItem){
         return new OrderItemDTO(
-                orderItem.getOrderId(),
-                orderItem.getProductId(),
+                orderItem.getOrder().getId(),
+                orderItem.getProduct().getId(),
                 orderItem.getPrice(),
                 orderItem.getQuantity(),
-                orderItem.getItem().getName(),
-                orderItem.getItem().getImg_url()
+                orderItem.getProduct().getName(),
+                orderItem.getProduct().getImg_url()
         );
     }
 
@@ -52,11 +52,11 @@ public class OrderItemService {
         orderItemRepository.save(orderItem);
 
         return new OrderItemDTO(
-                orderItem.getOrderId(),
-                orderItem.getProductId(),
+                orderItem.getOrder().getId(),
+                orderItem.getProduct().getId(),
                 orderItem.getPrice(),
                 orderItem.getQuantity(),
-                product.name,
+                product.getName(),
                 product.getImg_url()
         );
     }
